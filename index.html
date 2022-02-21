@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patika - Bootcamp Kayıt Formu</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="container">
+        <div id="register">
+          <div class="header">
+            <h3>Patika - Kofana Bootcamp Başvuru Formu</h3>
+            <a onclick="changeTab()">Başvuru Listesi</a>
+          </div>
+          <hr />
+          <div class="body">
+            <form id="addForm">
+              <div class="form-group">
+                <label for="applyEmail">E-Posta Adresi</label>
+                <input type="email" id="applyEmail" />
+              </div>
+              <div class="form-group">
+                <label for="applyFullname">Ad ve Soyad</label>
+                <input type="text" id="applyFullname" />
+              </div>
+              <div class="form-group">
+                <label for="applyPhone">Telefon Numarası</label>
+                <input type="tel" id="applyPhone" />
+              </div>
+              <div class="form-group">
+                <label for="applyBirthday">Doğum Tarihi</label>
+                <input type="date" id="applyBirthday" />
+              </div>
+            </form>
+          </div>
+          <div class="footer">
+            <div id="button-group">
+              <button class="btn btn-danger" id="clearBtn">Sil</button>
+              <button class="btn btn-primary" id="saveBtn">Kaydet</button>
+            </div>
+          </div>
+        </div>
+        <div id="candidates" style="display: none;">
+          <div class="header">
+            <h3>Patika - Kofana Bootcamp Başvuru Listesi</h3>
+            <a onclick="changeTab()">Yeni Kayıt</a>
+          </div>
+          <hr />
+          <div class="body" style="margin-top: 1rem;">
+            <table id="candidatesList">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Ad Soyad</th>
+                  <th>E-Posta</th>
+                  <th>Telefon Numarası</th>
+                  <th>Doğum Tarihi</th>
+                  <th>Kayıt Tarihi</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
