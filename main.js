@@ -46,15 +46,12 @@ saveBtn.addEventListener('click', (event) => {
     birthdayTxt.value == ''
   ) {
     alert('Lütfen bilgilerinizi giriniz.')
-    for (let index = 0; index < campApps; index++) {
-      const element = campApps[index]
-      console.log(element)
-    }
   } else {
     campApps.push(new NewApply(emailTxt.value, fullnameTxt.value, phoneTxt.value, birthdayTxt.value))
     localStorage.setItem('campapps', JSON.stringify(campApps))
     addForm.reset()
     renderList()
+    alert("Başvurunuz iletildi.")
   }
 })
 
