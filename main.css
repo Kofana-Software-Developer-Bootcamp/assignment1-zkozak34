@@ -56,6 +56,13 @@ a:hover {
   outline-color: cornflowerblue;
 }
 
+.form-group > input:invalid {
+  padding: 0.4rem 0.7rem;
+  font-size: 1rem;
+  color: #495057;
+  outline-color: red;
+}
+
 #button-group {
   text-align: right;
 }
@@ -122,6 +129,13 @@ a:hover {
 }
 
 #candidatesList th {
+  padding: 1rem 0;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+
+#candidatesList .acceptItem {
   padding: 1rem 0;
   text-align: left;
   background-color: #04aa6d;

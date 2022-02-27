@@ -3,6 +3,7 @@ const registerTab = document.getElementById('register')
 const candidatesTab = document.getElementById('candidates')
 const changeTabBtn = document.querySelector('#changeTab')
 
+//*Tab change function
 let showList = 1
 const changeTab = function () {
   showList = !showList
@@ -15,14 +16,15 @@ const changeTab = function () {
   }
 }
 
-// REGISTER FUNCTIONS
+// *REGISTER FUNCTIONS
+// **Form elements
 const addForm = document.getElementById('addForm')
-
 const emailTxt = document.getElementById('applyEmail')
 const fullnameTxt = document.getElementById('applyFullname')
 const phoneTxt = document.getElementById('applyPhone')
 const birthdayTxt = document.getElementById('applyBirthday')
 
+// **LocalStorage functions
 let campApps
 function initialApp() {
   campApps = getApps() ?? []
@@ -35,8 +37,8 @@ function setApps(array) {
   localStorage.setItem('campapps', JSON.stringify(array))
 }
 
+// **Form submit function
 addForm.addEventListener('submit', (e) => submitForm(e))
-
 const submitForm = (event) => {
   event.preventDefault()
   if (
@@ -58,6 +60,7 @@ const submitForm = (event) => {
   }
 }
 
+//**Apply model
 class NewApply {
   constructor(email, fullname, phonenumber, birthday) {
     this.email = email
@@ -72,7 +75,7 @@ class NewApply {
 const tbodyList = document
   .getElementById('candidatesList')
   .getElementsByTagName('tbody')[0]
-
+//**Renger table
 const renderList = function () {
   initialApp()
   tbodyList.innerHTML = ''
@@ -89,7 +92,9 @@ const renderList = function () {
             <td><button class="btn btn-danger btn-sm" onclick="rejectBtn('${
               element.email
             }')">Reddet</button></td>
-            <td><button class="btn btn-success btn-sm" id="acceptBtn" >Kabul Et</button></td>
+            <td><button class="btn btn-success btn-sm" onclick="acceptBtn('${
+              element.fullname
+            }')" >Kabul Et</button></td>
         </tr>
         `
     tbodyList.innerHTML += rowTemplate
@@ -103,5 +108,6 @@ function rejectBtn(email) {
   renderList()
   console.table(getApps())
 }
-
-const acceptBtn = document.getElementById('acceptBtn')
+function acceptBtn(element) {
+  alert(`${element} adlı kişinin başvurusu kabul edildi.`)
+}

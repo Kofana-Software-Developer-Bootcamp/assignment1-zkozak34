@@ -1,15 +1,23 @@
-# Bootcamp Başvuru Uygulaması
-## Hakkında
-Javascript ile Bootcamp başvuru uygulamasıdır. Veriler Local Storage'a kaydedilmektedir. 
+# Bootcamp Başvuru Formu / Bootcamp Application Form
 
-## Aşamalar
+## Hakkında / About
 
-- [x] HTML yapısının hazırlanması
+**[TR]** Javascript ile geliştirilmiş bootcamp başvuru formudur. Veriler Local Storage'a kaydedilmektedir.
 
-- [x] Stillendirme işlemlerinin yapılması
+**[EN]** This is a bootcamp application form which developed with javascript. Data is stored in local storage.
 
-- [x] Yeni başvuru formunun düzenlenmesi ve Local Storage'a kaydı
+## Aşamalar / Stages
 
-- [x] Kayıtların listelenmesi
+- [x] **[TR]** HTML yapısının hazırlanması / **[EN]** Preparing the HTML structure
 
-- [ ] Liste üzerinden düzenleme işlemlerinin yapılması
+- [x] **[TR]** Stillendirme işlemlerinin yapılması / **[EN]** Performing the style operations
+
+- [x] **[TR]** Yeni başvuru formunun düzenlenmesi ve Local Storage'a kaydı / **[EN]** Editing of the new application form and registration on Local Storage
+
+- [x] **[TR]** Kayıtların listelenmesi / **[EN]** Listing of records
+
+- [x] **[TR]** Liste üzerinden düzenleme işlemlerinin yapılması / **[EN]** Performing editing operations on list
+
+## Ekran Görüntüsü / Screenshots
+
+![Bootcamp Application](./img/app-screen.png)
