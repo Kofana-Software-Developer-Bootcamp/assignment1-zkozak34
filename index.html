@@ -20,36 +20,40 @@
             <form id="addForm">
               <div class="form-group">
                 <label for="applyEmail">E-Posta Adresi</label>
-                <input type="email" id="applyEmail" />
+                <input type="email" id="applyEmail" required />
               </div>
               <div class="form-group">
                 <label for="applyFullname">Ad ve Soyad</label>
-                <input type="text" id="applyFullname" />
+                <input type="text" id="applyFullname" required />
               </div>
               <div class="form-group">
                 <label for="applyPhone">Telefon Numarası</label>
-                <input type="tel" id="applyPhone" />
+                <input
+                  type="tel"
+                  pattern="[0-9]{10}"
+                  id="applyPhone"
+                  placeholder="Başında 0 olmadan yazınız."
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="applyBirthday">Doğum Tarihi</label>
-                <input type="date" id="applyBirthday" />
+                <input type="date" id="applyBirthday" required />
+              </div>
+              <div id="button-group">
+                <button class="btn btn-danger" id="clearBtn" type="reset">Sil</button>
+                <button class="btn btn-primary" id="saveBtn" type="submit">Kaydet</button>
               </div>
             </form>
           </div>
-          <div class="footer">
-            <div id="button-group">
-              <button class="btn btn-danger" id="clearBtn">Sil</button>
-              <button class="btn btn-primary" id="saveBtn">Kaydet</button>
-            </div>
-          </div>
         </div>
-        <div id="candidates" style="display: none;">
+        <div id="candidates" style="display: none">
           <div class="header">
             <h3>Patika - Kofana Bootcamp Başvuru Listesi</h3>
             <a onclick="changeTab()">Yeni Kayıt</a>
           </div>
           <hr />
-          <div class="body" style="margin-top: 1rem;">
+          <div class="body" style="margin-top: 1rem">
             <table id="candidatesList">
               <thead>
                 <tr>

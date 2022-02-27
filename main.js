@@ -20,7 +20,6 @@ const changeTab = function () {
 // Yeni Kayıt işlemleri
 
 const saveBtn = document.getElementById('saveBtn')
-const clearBtn = document.getElementById('clearBtn')
 const addForm = document.getElementById('addForm')
 
 const emailTxt = document.getElementById('applyEmail')
@@ -33,11 +32,9 @@ let campApps =
     ? []
     : JSON.parse(localStorage.getItem('campapps'))
 
-clearBtn.addEventListener('click', () => {
-  addForm.reset()
-})
+addForm.addEventListener('submit', (e) => submitForm(e))
 
-saveBtn.addEventListener('click', (event) => {
+const submitForm = (event) => {
   event.preventDefault()
   if (
     emailTxt.value == '' ||
@@ -47,13 +44,16 @@ saveBtn.addEventListener('click', (event) => {
   ) {
     alert('Lütfen bilgilerinizi giriniz.')
   } else {
-    campApps.push(new NewApply(emailTxt.value, fullnameTxt.value, phoneTxt.value, birthdayTxt.value))
+    campApps.push(
+      new NewApply(emailTxt.value, fullnameTxt.value, phoneTxt.value, birthdayTxt.value)
+    )
     localStorage.setItem('campapps', JSON.stringify(campApps))
     addForm.reset()
     renderList()
-    alert("Başvurunuz iletildi.")
+    alert('Başvurunuz iletildi.')
+    console.log(campApps)
   }
-})
+}
 
 class NewApply {
   constructor(email, fullname, phonenumber, birthday) {
@@ -61,18 +61,20 @@ class NewApply {
     this.fullname = fullname
     this.phonenumber = phonenumber
     this.birthday = moment(birthday, 'YYYY-MM-DD').format('DD/MM/YYYY')
-    this.createdDate = moment().format("DD/MM/YYYY HH:MM")
+    this.createdDate = moment().format('DD/MM/YYYY HH:MM')
   }
 }
 
 // Liste işlemleri
-const tbodyList = document.getElementById("candidatesList").getElementsByTagName("tbody")[0]
+const tbodyList = document
+  .getElementById('candidatesList')
+  .getElementsByTagName('tbody')[0]
 
-const renderList = function(){
-    tbodyList.innerHTML = ""
-    for (let index = campApps.length - 1; index => 0; index--) {
-        let element = campApps[index]
-        let rowTemplate = `
+const renderList = function () {
+  tbodyList.innerHTML = ''
+  for (let index = campApps.length - 1; index >= 0; index--) {
+    let element = campApps[index]
+    let rowTemplate = `
         <tr>
             <td>${index + 1}</td>
             <td>${element.fullname}</td>
@@ -84,7 +86,7 @@ const renderList = function(){
             <td><button class="btn btn-success btn-sm">Kabul Et</button></td>
         </tr>
         `
-        tbodyList.innerHTML += rowTemplate;
-    }
+    tbodyList.innerHTML += rowTemplate
+  }
 }
-renderList();
+renderList()
